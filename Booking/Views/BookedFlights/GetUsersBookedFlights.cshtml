@@ -1,0 +1,75 @@
+﻿@using Booking.Domain.Model.Enums
+@model IEnumerable<Booking.Business.Models.Dto.BookedFlightDto>
+
+@{
+    ViewData["Title"] = "BookedFlights";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>My Booked Flights</h1>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDeparture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDestination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightStopNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightSeatNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightDeparture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightDestination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightStopNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightSeatNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingStatus)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="ReturnToFlights">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

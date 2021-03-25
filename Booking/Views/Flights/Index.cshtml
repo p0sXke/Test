@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Booking.Business.Models.Dto.FlightDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Flight table</h1>
+<br />
+@if (User.IsInRole("Admin") || User.IsInRole("Agent"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+<br />
+<p>
+    <a asp-action="GetUsersBookedFlights">My Booked Flights</a>
+</p>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Departure</th>
+            <th>Destination</th>
+            <th>Date/Time</th>
+            <th>Stop Number</th>
+            <th>Seat Number</th>
+            <th>Flight canceled</th>
+        </tr>
+    </thead>
+    <tbody id="flightTableBody"></tbody>
+</table>
+
+
+<div>
+    <a asp-action="ReturnToMain">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

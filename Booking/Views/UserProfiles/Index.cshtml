@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Booking.Business.Models.Dto.UserProfileDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User profile table</h1>
+<br />
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>UserName</th>
+            <th>Phone number</th>
+            <th>Notification</th>
+        </tr>
+    </thead>
+    <tbody id="userTableBody"></tbody>
+</table>

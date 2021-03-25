@@ -1,0 +1,85 @@
+﻿@model Booking.Business.Models.Dto.BookedFlightDto
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<h3 style="color:red"><strong>@TempData["Message"]</strong></h3>
+
+<div>
+    <h4>Booked Flight</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightDeparture)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightDeparture)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightDestination)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightDestination)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightDateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightDateTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightStopNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightStopNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightSeatNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FlightSeatNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserProfileFullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserProfileFullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserProfileEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserProfileEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BookSeats)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BookSeats)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BookingStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BookingStatus)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.IsInRole("Admin") || User.IsInRole("Agent"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        <form asp - action="Delete">
+
+            <input type="hidden" asp -for="@Model.Id" />
+
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </form>
+    }
+
+    <a asp-action="ReturnToFlights">Back to List</a>
+</div>

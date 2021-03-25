@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to flight booking system</h1>
+
+
+    <div class="btn-group" style="width:100%">
+        <form asp-action="Flights" style="width:25%">
+            <button style="width:100%">Flights</button>
+        </form>
+        @if (User.IsInRole("Admin") || User.IsInRole("Agent"))
+        {
+            <form asp-action="Booking" style="width:25%">
+                <button style="width:100%">Booking</button>
+            </form>
+        }
+        <form asp-action="Search" style="width:25%">
+            <button style="width:100%">Search</button>
+        </form>
+        @if (User.IsInRole("Admin"))
+        {
+            <form asp-action="Users" style="width:25%">
+                <button style="width:100%">Users</button>
+            </form>
+        }
+    </div>
+</div>

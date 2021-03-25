@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Booking.Business.Models.Dto.BookedFlightDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Booking table</h1>
+<br />
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Departure</th>
+            <th>Destination</th>
+            <th>Date/Time</th>
+            <th>Stops</th>
+            <th>Seats</th>
+            <th>User</th>
+            <th>Email</th>
+            <th>Booked Seats</th>
+            <th>Booking Status</th>
+        </tr>
+    </thead>
+    <tbody id="bookedTableBody"></tbody>
+</table>
